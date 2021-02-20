@@ -1,5 +1,7 @@
 @php
-  $text = $_POST['text'];
+  if(!empty($_POST['text'])) {
+    $text = $_POST['text'];
+  }
 @endphp
 
 <!DOCTYPE html>
