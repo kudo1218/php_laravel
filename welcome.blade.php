@@ -1,14 +1,7 @@
-<?php
-  if(!empty($_POST['text'])) {
-    $text = $_POST['text'];
+@php
+  $text = $_POST['text'];
+@endphp
 
-    if($text == "東京") {
-      $message = "正解";
-    }else{
-      $message = "不正解";
-    }
-  }
-?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -25,10 +18,15 @@
     <body>
       <h1>日本の首都は？</h1>
 
-      <form action="welcome.blade.php" method="post">
+      <form method="post">
+        @csrf
         <input type="text" name="text"><input type="submit" value="OK">
       </form>
 
-      <?php echo $message ?>
+      @if($text == "東京")
+      <p>正解</p>
+      ＠else
+      <p>不正解</p>
+      @endif
     </body>
 </html>
